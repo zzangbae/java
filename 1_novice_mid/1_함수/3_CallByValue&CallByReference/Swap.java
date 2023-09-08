@@ -8,6 +8,7 @@ class IntWrapper {
     }
 }
 
+// Swap함수 - 두 정수 값 교환하기
 public class Swap {
     public static void swap(IntWrapper n, IntWrapper m) {
         int temp = n.value;
