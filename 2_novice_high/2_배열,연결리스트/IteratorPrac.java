@@ -4,7 +4,7 @@ import java.util.ListIterator;
 
 public class IteratorPrac {
     public static void main(String[] args) {
-        LinkedList<Character> l = new LinkedList<>();
+        LinkedListPrac<Character> l = new LinkedListPrac<>();
         l.add('a');
         l.add('b');
         l.add('c');
