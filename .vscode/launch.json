@@ -1,0 +1,126 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Prac",
+            "request": "launch",
+            "mainClass": "Prac",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem1",
+            "request": "launch",
+            "mainClass": "Problem1",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem2",
+            "request": "launch",
+            "mainClass": "Problem2",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem3",
+            "request": "launch",
+            "mainClass": "Problem3",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem4",
+            "request": "launch",
+            "mainClass": "Problem4",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem5",
+            "request": "launch",
+            "mainClass": "Problem5",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem6",
+            "request": "launch",
+            "mainClass": "Problem6",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem7",
+            "request": "launch",
+            "mainClass": "Problem7",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem8",
+            "request": "launch",
+            "mainClass": "Problem8",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "Problem9",
+            "request": "launch",
+            "mainClass": "Problem9",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorld",
+            "request": "launch",
+            "mainClass": "ch1.HelloWorld",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListEx1",
+            "request": "launch",
+            "mainClass": "ch11.ArrayListEx1",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListEx2",
+            "request": "launch",
+            "mainClass": "ch11.ArrayListEx2",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListLinkedListTest",
+            "request": "launch",
+            "mainClass": "ch11.ArrayListLinkedListTest",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListLinkedListTest2",
+            "request": "launch",
+            "mainClass": "ch11.ArrayListLinkedListTest2",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "VarArgsEx",
+            "request": "launch",
+            "mainClass": "ch6.s4_overloading.VarArgsEx",
+            "projectName": "java_17ec2c9b"
+        }
+    ]
+}
