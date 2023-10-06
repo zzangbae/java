@@ -2,60 +2,81 @@ import java.util.*;
 
 /*
  * 십자 모양 폭발
- * 11:20~
+ * 11:20~13:13(2시간...한시간 오바)
  */
 public class Problem2 {
     public static final int MAX_N = 200;
 
     public static int n;
     public static int[][] grid = new int[MAX_N][MAX_N];
+    public static int[][] tmp = new int[MAX_N][MAX_N];
     public static int bs;   // 폭발크기 boom size
 
-    public static boolean inRange(int x, int y) {
-        return x >= 0 && x < n && y >= 0 && y < n;
-    }
+    public static void gravity(int r, int c) {
+        // 1. 열을 순회하며 0의 갯수를 센다.
+        // 2. tmp에 0의 갯수 만큼 grid위층에서 뽑아오기
+        for(int j = 0; j < n; j++) {
+            int cnt = 0;    // 0의 갯수
+            for(int i = 0; i < n; i++) {
+                if(grid[i][j] == 0)
+                    cnt++;
+            }
+            // 폭발에 영향이 없는 열은 그대로 복사
+            if(cnt == 0) {
+                for(int i = 0; i < n; i++) {
+                    tmp[i][j] = grid[i][j];
+                }
+                continue;
+            }
+            if(j == c) {
+                int xx = 0;
+                for(int i = n - 1; i >= 0; i--) {
+                    if(grid[i][j] != 0)
+                        tmp[i][j] = grid[i][j];
+                    else {
+                        // 0을 만남
+                        xx = i;
+                        break;
+                    }
+                }
+                for(int i = xx - 1; i >= 0; i--) {
+                    if(grid[i][j] != 0) {
+                        tmp[xx][j] = grid[i][j];
+                        xx--;
+                    }
+                }
 
-    public static void boom(int x, int y) {
-        final int[] dx = new int[]{-1, 1, 0, 0};  // 상하좌우
-        final int[] dy = new int[]{0, 0, -1, 1};  // 상하좌우
-        final int DIR_NUM = 4;
-        
-        for(int i = 0; i < DIR_NUM; i++) {
-            for(int d = 0; d < bs; d++) {
-                int nx = x + d * dx[i];
-                int ny = y + d * dy[i];
-                // 범위 안이면 터친다.
-                if(inRange(nx, ny)) {
-                    grid[nx][ny] = 0;
+            } else {
+                // 폭발에 영향이 있는 열에서 폭발 영향 밑에 있는 행들
+                for(int i = n - 1; i >= r + cnt; i--) {
+                    tmp[i][j] = grid[i][j];
+                }
+                // 폭발에 영향이 있는 열에서 폭발 영향 위에 있는 행들
+                for(int i = r; i >= cnt; i--) {
+                    tmp[i][j] = grid[i - cnt][j];
                 }
             }
         }
+
+        // tmp를 grid에 복사
+        for(int i = 0; i < n; i++)
+            for(int j = 0; j < n; j++)
+                grid[i][j] = tmp[i][j];
     }
 
-    // 폭탄이 (r, c)에서 터졌다. 이 때, 중력처리
-    public static void gravity(int r, int c) {
-        // c열을 제외한 처리
-        // 모두 r행이 0이다.
+    // 폭발
+    public static void boom(int r, int c) {
+        // 먼저 터치기 -> 0으로 grid 구멍 뚫기
         for(int j = c - bs + 1; j <= c + bs - 1; j++) {
-            // c열은 따로 처리
             if(j == c)
                 continue;
-            // 위에서 중력 작용 -> 만약 맨 위에서 터졌더라도, for문이 돌지 않기 때문에 인덱스 에러 없음
-            for(int i = r; i > 0; i--) {
-                grid[i][j] = grid[i - 1][j];
-            }
-            // 맨 윗칸 처리
-            grid[0][j] = 0;
+            if(j < 0 || j >= n)
+                continue;
+            grid[r][j] = 0;
         }
-
-        // c열 처리
-        for(int i = r + bs - 1; i >= r - bs + 1; i--) {
-            if(i > 0 && i < n) {
-                grid[i][c] = grid[i - 1][c];
-            }
-        }
-        // 맨 윗칸 처리
-        for(int i = 0; i < bs; i++) {
+        for(int i = r - bs + 1; i <= r + bs - 1; i++) {
+            if(i < 0 || i >= n)
+                continue;
             grid[i][c] = 0;
         }
     }
@@ -66,18 +87,12 @@ public class Problem2 {
         for(int i = 0; i < n; i++)
             for(int j = 0; j < n; j++)
                 grid[i][j] = sc.nextInt();    
-        // 터진 이후에는 중력에 의해 숫자들이 아래로 떨어짐
-        // 숫자 커지면 십자 범위가 더 커짐
-        // 터지는 곳
+
         int r = sc.nextInt() - 1;
         int c = sc.nextInt() - 1;
         bs = grid[r][c];
-        
-        // 격자 내의 숫자는 1~100
-        // 터진 곳은 0
-        boom(r, c);
 
-        // 중력
+        boom(r, c);
         gravity(r, c);
 
         for(int i = 0; i < n; i++) {

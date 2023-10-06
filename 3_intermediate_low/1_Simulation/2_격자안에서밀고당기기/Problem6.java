@@ -2,7 +2,7 @@ import java.util.*;
 
 /**
  * 최단 Run Length 인코딩
- * 12:37~
+ * 12:37~13:13(36분)
  */
 public class Problem6 {
     
