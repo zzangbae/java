@@ -1,31 +1,30 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.HashMap;
 
-/**
- * 숫자 등장 횟수 : 아주 큰 숫자를 Array의 Index로 사용하기
- * n개의 숫자 배열이 주어지고, m번에 걸쳐 특정 숫자가 주어지면 해당 숫자가 수열에 몇 번 나왔는지 출력
- */
+// 숫자 등장 횟수 - 큰 수를 카운팅 정렬할 때, HashMap활용
 public class Problem2 {
+    public static int n, m;
+
     public static void main(String[] args) {
+        // 10^9까지 카운팅 정렬을 하기엔 메모리를 너무 많이 차지하게 된다. -> HashMap활용하자!
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        // 해쉬맵 : 나타난 수, 몇번 나타났는지
+        n = sc.nextInt();
+        m = sc.nextInt();
         HashMap<Integer, Integer> map = new HashMap<>();
-        for(int i  = 0; i < n; i++) {
-            int k = sc.nextInt();
-            // 이미 있다면 갯수 올려주기
-            if(map.containsKey(k)) {
-                int c = map.get(k);
-                int nc = c + 1;
-                map.put(k, nc); // 1개 늘린값을 넣어주기(수정)
-            } else {
-                map.put(k, 1);
-            }
+
+        for(int i = 0; i < n; i++) {
+            int x = sc.nextInt();
+            if(map.containsKey(x)) {
+                int cnt = map.get(x);
+                map.put(x, cnt + 1);
+            } else
+                map.put(x, 1);
         }
+
         for(int i = 0; i < m; i++) {
-            int k = sc.nextInt();
-            if(map.containsKey(k))
-                System.out.print(map.get(k) + " ");
+            int q = sc.nextInt();
+            if(map.containsKey(q))
+                System.out.print(map.get(q) + " ");
             else
                 System.out.print(0 + " ");
         }

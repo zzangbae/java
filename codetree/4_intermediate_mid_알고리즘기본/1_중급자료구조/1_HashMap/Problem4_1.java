@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * 대응되는 수와 문자
  */
-public class Problem4 {
+public class Problem4_1 {
     public static int MAX_N = 100000;
 
     public static void main(String[] args) {
