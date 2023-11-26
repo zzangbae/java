@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PracStringSort",
+            "request": "launch",
+            "mainClass": "PracStringSort",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
+            "name": "ArraySortPrac",
+            "request": "launch",
+            "mainClass": "ArraySortPrac",
+            "projectName": "java_17ec2c9b"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
