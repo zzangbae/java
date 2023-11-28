@@ -30,6 +30,13 @@ public class Problem3 {
                 minIdx = i;
         }
         System.out.println(agents[minIdx].name + " " + agents[minIdx].point);
-            
+        /** 국어점수 기준으로 오름차순, 같다면 영어점수 내림차순
+            20 80 80
+            60 10 50
+            80 20 10
+            90 80 90 - (4)
+            90 30 60 - (5)
+            (4), (5)를 비교해보면 국어점수가 같을 때, 영어점수 기준으로 내림차순했음을 확인할 수 있다. 
+         */
     }
 }
